@@ -1,0 +1,34 @@
+service: api-posts
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: eu-west-1
+  stage: dev
+  versionFunctions: false
+  deploymentBucket: zadif-sls-deployments
+
+plugins:
+  - serverless-offline
+  - serverless-domain-manager
+
+functions:
+  graphql:
+    handler: lambda.graphql
+    cors: true
+    private: false
+    events:
+      - http:
+          path: /
+          method: post
+          cors: true
+      - http:
+          path: /
+          method: get
+          cors: true
+
+custom:
+  customDomain:
+    domainName: api.zadif.com
+    basePath: posts
+    stage: dev
