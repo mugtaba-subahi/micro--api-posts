@@ -21,7 +21,8 @@ jobs:
 
       - name: Setup Typescript
         uses: icrawl/action-tsc@v1
-        run: tsc
+        with:
+          args: tsc
 
       - name: Setup Serverless
         uses: serverless/github-action@master
