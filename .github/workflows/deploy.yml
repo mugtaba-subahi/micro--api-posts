@@ -19,8 +19,12 @@ jobs:
       - name: Install
         run: npm ci
 
+      - name: Setup Typescript
+        uses: icrawl/action-tsc@v1
+        run: tsc
+
       - name: Setup Serverless
-        uses: tegud/serverless-github-action@1.66.0
+        uses: serverless/github-action@master
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOYER_AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOYER_AWS_SECRET_ACCESS_KEY }}
