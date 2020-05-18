@@ -6,20 +6,24 @@ on:
       - master
 
 jobs:
-  Deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
 
       - name: Install
-        uses: actions/npm@master
-        with:
-          args: ci
+        run: npm ci
 
       - name: Serverless Deploy
         uses: serverless/github-action@master
-        with:
-          args: deploy
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOYER_AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOYER_AWS_SECRET_ACCESS_KEY }}
+
+      - name: Deploy
+        run: npm run deploy
