@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup node
+      - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
@@ -19,8 +19,8 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: Serverless Deploy
-        uses: serverless/github-action@master
+      - name: Setup Serverless
+        uses: tegud/serverless-github-action@1.66.0
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOYER_AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOYER_AWS_SECRET_ACCESS_KEY }}
