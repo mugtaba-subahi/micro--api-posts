@@ -28,7 +28,7 @@ jobs:
           path: serverless
           key: ${{ runner.os }}-serverless
 
-      - name: Add Serverless to cache if not there?
+      - name: Serverless cache check
         if: steps.serverless.outputs.cache-hit != 'true'
         run: npm install -g serverless@1.71.1
 
