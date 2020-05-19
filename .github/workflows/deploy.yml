@@ -74,8 +74,6 @@ jobs:
     needs: serverless
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
       - name: Compile and Deploy
         run: tsc && serverless deploy
         env:
