@@ -19,11 +19,11 @@ jobs:
       - name: Install Dependencies
         run: yarn --production=true
 
-      - name: Install TypeScript & Serverless
-        run: sudo yarn global add typescript@3.9.2 & yarn global add serverless@1.71.1
+      - name: Install TypeScript
+        run: sudo yarn global add typescript@3.9.2 &
 
-      # - name: Install Serverless
-      # run: sudo yarn global add serverless@1.71.1
+      - name: Install Serverless
+        run: sudo yarn global add serverless@1.71.1
 
       - name: Compile & Deploy
         run: sudo tsc && serverless deploy
