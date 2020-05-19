@@ -54,7 +54,6 @@ jobs:
     needs: nodejs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - name: Install TypeScript
         run: sudo npm install -g typescript@3.9.2
 
@@ -62,7 +61,6 @@ jobs:
     needs: nodejs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - name: Install Serverless
         run: sudo npm install -g serverless@1.71.1
 
