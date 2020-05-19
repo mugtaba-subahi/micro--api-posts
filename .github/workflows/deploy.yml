@@ -47,7 +47,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install Dependencies
-        run: yarn --prod
+        run: yarn --prod --frozen-lockfile
 
   typescript:
     needs: nodejs
