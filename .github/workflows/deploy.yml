@@ -43,13 +43,10 @@ jobs:
           node-version: 12.x
 
       - name: Install
-        run: npm ci
+        run: npm ci --only=production
 
       - name: Compile Typescript
-        uses: icrawl/action-tsc@v1
-
-      - name: Compile TypeScript
-        run: tsc
+        run: npm install -g typescript && tsc
 
       - name: Setup Serverless
         uses: serverless/github-action@master
