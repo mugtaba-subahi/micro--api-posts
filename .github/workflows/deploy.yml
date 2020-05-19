@@ -47,31 +47,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install Dependencies
-        # run: npm ci --only=production
-        run: yarn install --production=true
+        run: yarn --prod
 
   typescript:
     needs: nodejs
     runs-on: ubuntu-latest
     steps:
       - name: Install TypeScript
-        # run: sudo npm install -g typescript@3.9.2
         run: sudo yarn global add typescript@3.9.2
 
   serverless:
     needs: nodejs
     runs-on: ubuntu-latest
     steps:
-      # - uses: actions/cache@v1
-      #   id: cache-serverless
-      #   with:
-      #     path: ./.serverless/
-      #     key: serverless-4-${{ hashFiles('**/cloudformation-template-update-stack.json') }}
-      #     restore-keys: serverless-4-
-
       - name: Install Serverless
-        # if: steps.cache-serverless.outputs.cache-hit != 'true'
-        # run: sudo npm install -g serverless@1.71.1
         run: sudo yarn global add serverless@1.71.1
 
   deploy:
