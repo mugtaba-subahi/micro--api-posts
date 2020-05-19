@@ -5,63 +5,28 @@ on:
     branches:
       - master
 
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
-
-#       - name: Setup Node
-#         uses: actions/setup-node@v1
-#         with:
-#           node-version: 12.x
-
-#       - name: Install Dependencies
-#         run: npm ci --only=production
-
-#       - name: Compile TypeScript
-#         run: npm install -g typescript@3.9.2 && tsc
-
-#       - name: Serverless cache check
-#         if: steps.serverless.outputs.cache-hit != 'true'
-#         run: npm install -g serverless@1.71.1
-
-#       - name: Deploy
-#         run: npm install -g serverless@1.71.1 && serverless deploy
-#         env:
-#           AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOYER_AWS_ACCESS_KEY_ID }}
-#           AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOYER_AWS_SECRET_ACCESS_KEY }}
-
 jobs:
-  nodejs:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Install Node.js
+      - uses: actions/checkout@v2
+
+      - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
 
-  typescript:
-    needs: nodejs
-    runs-on: ubuntu-latest
-    steps:
+      - name: Install Dependencies
+        run: yarn --production=true
+
       - name: Install TypeScript
         run: sudo yarn global add typescript@3.9.2
 
-  serverless:
-    needs: nodejs
-    runs-on: ubuntu-latest
-    steps:
       - name: Install Serverless
         run: sudo yarn global add serverless@1.71.1
 
-  deploy:
-    needs: [nodejs, typescript, serverless]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Compile and Deploy
-        run: yarn --production=true && tsc && serverless deploy
+      - name: Compile & Deploy
+        run: tsc && serverless deploy
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOYER_AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOYER_AWS_SECRET_ACCESS_KEY }}
