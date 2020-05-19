@@ -68,13 +68,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Cache Serverless
-        id: serverless-cach
+      - name: Cache node modules
         uses: actions/cache@v1
+        env:
+          cache-name: cache-node-modules
         with:
-          path: .serverless
-          key: serverless-2-${{ hashFiles('.serverless/serverless-state.json') }}
-          restore-keys: serverless-2-
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
 
       - name: Install Serverless
         if: steps.serverless-cach.outputs.cache-hit != 'true'
