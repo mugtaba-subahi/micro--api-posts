@@ -22,9 +22,9 @@ jobs:
         run: npm install -g typescript@3.9.2 && tsc
 
       - name: Add Serverless to cache 
-        uses: actions/cache@v1
         run: npm install -g serverless@1.71.1
         id: serverless
+        uses: actions/cache@v1
           with:
             path: serverless
             key: ${{ runner.os }}-serverless
