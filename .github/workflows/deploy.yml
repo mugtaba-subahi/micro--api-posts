@@ -17,20 +17,22 @@ jobs:
           node-version: 12.x
 
       - name: Install Dependencies
-        run: yarn --production=true
+        run: yarn
 
       # need to make serverless and typescript run in parallel
+      - uses: actions/checkout@v2
       - name: Compile TypeScript
-        run: sudo yarn global add typescript@3.9.2 && sudo tsc
+        run: yarn global add typescript@3.9.2
 
       # need to make serverless and typescript run in parallel
+      - uses: actions/checkout@v2
       - name: Install Serverless
-        run: sudo yarn global add serverless@1.71.1
+        run: yarn global add serverless@1.71.1
 
       # need to make serverless and typescript run in parallel
       - uses: actions/checkout@v2
       - name: Deploy
-        run: serverless deploy
+        run: tsc && serverless deploy
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOYER_AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOYER_AWS_SECRET_ACCESS_KEY }}
