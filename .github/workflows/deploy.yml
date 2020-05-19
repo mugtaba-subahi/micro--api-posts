@@ -53,7 +53,7 @@ jobs:
         id: npm
         with:
           path: ./.serverless/
-          key: serverless-3-${{ hashFiles('**/cloudformation-template-update-stack.json.json') }}
+          key: serverless-3-${{ hashFiles('**/cloudformation-template-update-stack.json') }}
           restore-keys: serverless-3-
 
   typescript:
