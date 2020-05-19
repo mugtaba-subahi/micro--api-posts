@@ -70,8 +70,8 @@ jobs:
         id: serverless-cache
         uses: actions/cache@v1
         with:
-          path: serverless
-          key: cache-serverless-${{ hashFiles('*serverless/serverless-state.json') }}
+          path: .serverless
+          key: cache-serverless-${{ hashFiles('.serverless/serverless-state.json') }}
           restore-keys: cache-serverless-
 
       - name: Install Serverless
