@@ -24,10 +24,6 @@ jobs:
         run: sudo yarn global add typescript@3.9.2 & tsc
 
       # need to make serverless and typescript run in parallel
-      - name: Install Serverless
-        run: sudo yarn global add serverless@1.71.1
-
-      # need to make serverless and typescript run in parallel
       - name: Deploy
         run: sudo yarn global add serverless@1.71.1 && sudo serverless deploy
         env:
