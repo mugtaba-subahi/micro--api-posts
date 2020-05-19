@@ -45,28 +45,23 @@ jobs:
     needs: nodejs
     runs-on: ubuntu-latest
     steps:
-      - uses: jaid/action-npm-install@v1.2.1
+      - uses: actions/checkout@v2
       - name: Install Dependencies
-        # run: yarn --production=true --frozen-lockfile
-        run: pnpm --production=true --frozen-lockfile
+        run: yarn --production=true --frozen-lockfile
 
   typescript:
     needs: nodejs
     runs-on: ubuntu-latest
     steps:
-      - uses: jaid/action-npm-install@v1.2.1
       - name: Install TypeScript
-        # run: sudo yarn global add typescript@3.9.2
-        run: sudo pnpm global add typescript@3.9.2
+        run: sudo yarn global add typescript@3.9.2
 
   serverless:
     needs: nodejs
     runs-on: ubuntu-latest
     steps:
-      - uses: jaid/action-npm-install@v1.2.1
       - name: Install Serverless
-        # run: sudo yarn global add serverless@1.71.1
-        run: sudo pnpm global add serverless@1.71.1
+        run: sudo yarn global add serverless@1.71.1
 
   deploy:
     needs: serverless
