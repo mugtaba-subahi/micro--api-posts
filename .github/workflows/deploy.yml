@@ -26,7 +26,7 @@ jobs:
         run: sudo yarn global add serverless@1.71.1
 
       - name: Compile & Deploy
-        run: sudo tsc && serverless deploy
+        run: sudo tsc && sudo serverless deploy
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOYER_AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOYER_AWS_SECRET_ACCESS_KEY }}
