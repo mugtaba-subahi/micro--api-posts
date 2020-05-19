@@ -62,12 +62,24 @@ jobs:
       - name: Install TypeScript
         run: sudo npm install -g typescript@3.9.2
 
+      - uses: actions/cache@v1
+        with:
+          path: typescript
+          key: typescript
+          restore-keys: typescript
+
   serverless:
     needs: nodejs
     runs-on: ubuntu-latest
     steps:
       - name: Install Serverless
         run: sudo npm install -g serverless@1.71.1
+
+      - uses: actions/cache@v1
+        with:
+          path: serverless
+          key: serverless
+          restore-keys: serverless
 
   deploy:
     needs: serverless
