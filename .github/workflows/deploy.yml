@@ -1,37 +1,10 @@
-name: Deploy
+name: Build and Deploy
 
 on:
   push:
     branches:
       - master
-
 jobs:
-  # deploy:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-
-  #     - name: Setup Node
-  #       uses: actions/setup-node@v1
-  #       with:
-  #         node-version: 12.x
-
-  #     - name: Install
-  #       run: npm ci
-
-  #     - name: Setup Typescript
-  #       uses: icrawl/action-tsc@v1
-  #       with:
-  #         args: tsc
-
-  #     - name: Setup Serverless
-  #       uses: serverless/github-action@master
-  #       with:
-  #         args: deploy
-  #       env:
-  #         AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOYER_AWS_ACCESS_KEY_ID }}
-  #         AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOYER_AWS_SECRET_ACCESS_KEY }}
-
   deploy:
     runs-on: ubuntu-latest
     steps:
@@ -45,14 +18,23 @@ jobs:
       - name: Install
         run: npm ci --only=production
 
-      - name: Compile Typescript
-        run: npm install -g typescript && tsc
+      - name: Compile TypeScript
+        run: npm install -g typescript@3.9.2 && tsc
 
-      - name: Setup Serverless
-        run: npm install -g serverless
+      - name: Add Serverless to cache 
+        uses: actions/cache@v1
+        run: npm install -g serverless@1.71.1
+        id: serverless
+          with:
+            path: serverless
+            key: ${{ runner.os }}-serverless
 
+      - name: Add Serverless to cache if not there? 
+        if: steps.serverless.outputs.cache-hit != 'true'
+        run: npm install -g serverless@1.71.1
+      
       - name: Deploy
-        run: serverless deploy
+        run: npm install -g serverless@1.71.1 && serverless deploy
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOYER_AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOYER_AWS_SECRET_ACCESS_KEY }}
