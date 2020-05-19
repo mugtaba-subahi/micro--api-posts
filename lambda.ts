@@ -5,7 +5,7 @@ import { APIGatewayProxyEvent, Context, Callback } from 'aws-lambda';
 
 const resolvers = {
   Query: {
-    allPosts: () => 'posts why',
+    allPosts: () => 'posts why1',
   },
 };
 
