@@ -72,9 +72,9 @@ jobs:
         id: serverless-cach
         uses: actions/cache@v1
         with:
-          path: serverless-cash
-          key: serverless-cash-${{ hashFiles('.serverless/serverless-state.json') }}
-          restore-keys: serverless-cash-
+          path: ~/.serverless-1
+          key: serverless-1-${{ hashFiles('.serverless/serverless-state.json') }}
+          restore-keys: serverless-1-
 
       - name: Install Serverless
         if: steps.serverless-cach.outputs.cache-hit != 'true'
