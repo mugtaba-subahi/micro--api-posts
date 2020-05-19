@@ -77,9 +77,9 @@ jobs:
 
       - uses: actions/cache@v1
         with:
-          path: serverless
-          key: serverless
-          restore-keys: serverless
+          path: ~/.serverless
+          key: serverless-${{ hashFiles('**.serverless/serverless-state.json') }}
+          restore-keys: serverless-
 
   deploy:
     needs: serverless
