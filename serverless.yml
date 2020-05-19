@@ -12,6 +12,9 @@ plugins:
   # - serverless-offline
   - serverless-domain-manager
 
+package:
+  individually: true
+
 functions:
   graphql:
     handler: lambda.graphql
