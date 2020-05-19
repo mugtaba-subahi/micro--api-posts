@@ -52,9 +52,9 @@ jobs:
       - uses: actions/cache@v1
         id: npm
         with:
-          path: ~/.npm
-          key: npm-packages-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: npm-packages-
+          path: ./.serverless/
+          key: serverless-3-${{ hashFiles('**/cloudformation-template-update-stack.json.json') }}
+          restore-keys: serverless-3-
 
   typescript:
     needs: nodejs
