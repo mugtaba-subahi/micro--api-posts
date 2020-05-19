@@ -56,7 +56,7 @@ jobs:
         run: sudo yarn global add serverless@1.71.1
 
   deploy:
-    needs: serverless
+    needs: [nodejs, typescript, serverless]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
