@@ -49,23 +49,10 @@ jobs:
         run: npm install -g typescript && tsc
 
       - name: Setup Serverless
-        uses: serverless/github-action@master
-        with:
-          args: deploy
+        run: npm install -g serverless
+
+      - name: Deploy
+        run: serverless deploy
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOYER_AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOYER_AWS_SECRET_ACCESS_KEY }}
-  # node:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - name: Setup Node
-  #       uses: actions/setup-node@v1
-  #       with:
-  #         node-version: 12.x
-  # typepscript:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - name: Setup Typescript
-  #       uses: icrawl/action-tsc@v1
