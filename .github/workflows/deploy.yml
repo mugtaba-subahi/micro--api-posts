@@ -61,14 +61,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/cache@v1
-        id: npm
+        id: cache-serverless
         with:
           path: ./.serverless/
-          key: serverless-3-${{ hashFiles('**/cloudformation-template-update-stack.json') }}
-          restore-keys: serverless-3-
+          key: serverless-4-${{ hashFiles('**/cloudformation-template-update-stack.json') }}
+          restore-keys: serverless-4-
 
       - name: Install Serverless
-        if: jobs.dependencies.steps.npm.outputs.cache-hit != 'true'
+        if: steps.cache-serverless.outputs.cache-hit != 'true'
         run: sudo npm install -g serverless@1.71.1
 
   deploy:
