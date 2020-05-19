@@ -67,15 +67,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Cache Serverless
-        id: serverless-cached
+        id: serverless-cache
         uses: actions/cache@v1
         with:
           path: serverless
-          key: cached-serverless-${{ hashFiles('*serverless/serverless-state.json') }}
-          restore-keys: cached-serverless-
+          key: cache-serverless-${{ hashFiles('*serverless/serverless-state.json') }}
+          restore-keys: cache-serverless-
 
       - name: Install Serverless
-        if: steps.serverless-cached.outputs.cache-hit != 'false'
+        if: steps.serverless-cache.outputs.cache-hit != 'true'
         run: sudo npm install -g serverless@1.71.1
 
   deploy:
