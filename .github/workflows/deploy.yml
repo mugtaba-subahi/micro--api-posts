@@ -43,10 +43,13 @@ jobs:
           node-version: 12.x
 
       - name: Install
-        run: npm ci --only=production
+        run: npm ci
 
       - name: Compile Typescript
         uses: icrawl/action-tsc@v1
+
+      - name: Compile TypeScript
+        run: tsc
 
       - name: Setup Serverless
         uses: serverless/github-action@master
@@ -55,9 +58,6 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOYER_AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOYER_AWS_SECRET_ACCESS_KEY }}
-
-      - name: Compile TypeScript
-        run: npm run tsc
   # node:
   #   runs-on: ubuntu-latest
   #   steps:
