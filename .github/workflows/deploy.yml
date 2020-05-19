@@ -36,12 +36,6 @@ jobs:
   nodejs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: npm-packages-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: npm-packages-
-
       - name: Install Node.js
         uses: actions/setup-node@v1
         with:
@@ -51,9 +45,14 @@ jobs:
     needs: nodejs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - name: Install Dependencies
         run: npm ci --only=production
+
+      - uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: npm-packages-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: npm-packages-
 
   typescript:
     needs: nodejs
