@@ -50,6 +50,7 @@ jobs:
         run: npm ci --only=production
 
       - uses: actions/cache@v1
+        id: npm
         with:
           path: ~/.npm
           key: npm-packages-${{ hashFiles('**/package-lock.json') }}
@@ -66,23 +67,8 @@ jobs:
     needs: nodejs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Cache node modules
-        id: serverless-cach
-        uses: actions/cache@v1
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-
       - name: Install Serverless
-        if: steps.serverless-cach.outputs.cache-hit != 'true'
+        if: jobs.dependencies.steps.npm.outputs.cache-hit != 'true'
         run: sudo npm install -g serverless@1.71.1
 
   deploy:
