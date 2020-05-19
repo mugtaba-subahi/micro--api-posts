@@ -21,18 +21,17 @@ jobs:
       - name: Compile TypeScript
         run: npm install -g typescript@3.9.2 && tsc
 
-      - name: Add Serverless to cache 
-        run: npm install -g serverless@1.71.1
+      - name: Add Serverless to cache
         id: serverless
         uses: actions/cache@v1
-          with:
-            path: serverless
-            key: ${{ runner.os }}-serverless
+        with:
+          path: serverless
+          key: ${{ runner.os }}-serverless
 
-      - name: Add Serverless to cache if not there? 
+      - name: Add Serverless to cache if not there?
         if: steps.serverless.outputs.cache-hit != 'true'
         run: npm install -g serverless@1.71.1
-      
+
       - name: Deploy
         run: npm install -g serverless@1.71.1 && serverless deploy
         env:
