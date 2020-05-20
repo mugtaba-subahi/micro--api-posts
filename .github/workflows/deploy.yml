@@ -26,9 +26,9 @@ jobs:
       # - name: Compile TypeScript
       #   run: tsc
 
-      # need to make serverless and typescript run in parallel
-      - name: Install Serverless
-        run: yarn global add serverless@1.71.1
+      # # need to make serverless and typescript run in parallel
+      # - name: Install Serverless
+      #   run: yarn global add serverless@1.71.1
 
       - name: Log dir
         run: yarn global dir
@@ -40,7 +40,8 @@ jobs:
         run: yarn global list
 
       - name: Deploy
-        run: npx sls deploy
+        uses: ./.github/actions/bob
+        run: sls -v
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOYER_AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOYER_AWS_SECRET_ACCESS_KEY }}
