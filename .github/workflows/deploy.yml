@@ -12,11 +12,11 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Cache Primes
-        id: cache-primes
+        id: serverless
         uses: actions/cache@v1
         with:
-          path: prime-numbers
-          key: ${{ runner.os }}-primes
+          path: serverless
+          key: serverless
 
       - name: Setup Node
         uses: ./.github/actions/steve
