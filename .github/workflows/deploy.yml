@@ -15,8 +15,8 @@ jobs:
       # - name: Setup Node
 
       # uses: ./.github/actions/steve
-      # - name: Install Dependencies
-      #   run: yarn
+      - name: Install Dependencies
+        run: yarn
 
       # - name: TSC -v ??? IT STILL WORKS WITHOUT INSTALLING IT???m CACHED?
       #   run: tsc -v
