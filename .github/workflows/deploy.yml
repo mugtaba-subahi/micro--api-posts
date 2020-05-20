@@ -41,10 +41,8 @@ jobs:
       # - name: Log list
       #   run: yarn global list
 
-      - uses: actions/checkout@v2
-
+      - uses: ./.github/actions/steve
       - name: Deploy
-        uses: ./.github/actions/steve
         run: sls -v
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOYER_AWS_ACCESS_KEY_ID }}
