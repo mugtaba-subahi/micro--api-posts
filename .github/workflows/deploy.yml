@@ -15,7 +15,7 @@ jobs:
         uses: ./.github/actions/steve
 
       - name: Install Dependencies
-        run: yarn install
+        run: yarn
 
       - name: TSC -v
         run: tsc -v
