@@ -1,2 +1,2 @@
-FROM node:8-jessie
-RUN npm install -g serverless@1.71.1
+FROM node:14-slim
+RUN yarn global add serverless@1.71.1
