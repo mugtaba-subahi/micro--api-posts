@@ -31,17 +31,19 @@ jobs:
       # - name: Install Serverless
       #   run: yarn global add serverless@1.71.1
 
-      - name: Log dir
-        run: yarn global dir
+      # - name: Log dir
+      #   run: yarn global dir
 
-      - name: Log bin
-        run: yarn global bin
+      # - name: Log bin
+      #   run: yarn global bin
 
-      - name: Log list
-        run: yarn global list
+      # - name: Log list
+      #   run: yarn global list
 
       - uses: actions/checkout@v2
+
       - name: Deploy
+        uses: ./.github/actions/steve
         run: sls -v
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOYER_AWS_ACCESS_KEY_ID }}
