@@ -14,7 +14,10 @@ jobs:
       - name: Setup Node
         uses: ./.github/actions/steve
 
-      - name: Sls -v
+      - name: TSC -v
+        run: tsc -v
+
+      - name: SLS -v
         run: sls -v
       # - name: Install Dependencies
       #   run: yarn install
