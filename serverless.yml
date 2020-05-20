@@ -14,14 +14,6 @@ provider:
 plugins:
   # - serverless-offline
   - serverless-domain-manager
-  - serverless-jetpack
-
-package:
-  individually: true
-  exclude:
-    - '*'
-    - '**/node_modules/aws-sdk/**' # included on Lambda.
-    - '!package.json'
 
 functions:
   graphql:
