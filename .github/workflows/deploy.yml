@@ -17,7 +17,10 @@ jobs:
       # - name: Install Dependencies
       #   run: yarn
 
-      - name: TSC -v
+      - name: TSC -v ??? IT STILL WORKS WITHOUT INSTALLING IT???m CACHED?
+        run: npm cache clear
+
+      - name: TSC -v ??? IT STILL WORKS WITHOUT INSTALLING IT???m CACHED?
         run: tsc -v
 
       - name: SLS -v
