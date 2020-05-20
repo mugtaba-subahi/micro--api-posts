@@ -39,7 +39,6 @@ jobs:
       - name: Log list
         run: yarn global list
 
-      - uses: actions/checkout@v2
       - uses: ./.github/actions/steve
       - name: Deploy
         run: sls -v
