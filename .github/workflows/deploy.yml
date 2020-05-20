@@ -15,8 +15,11 @@ jobs:
       - name: Install Dependencies
         run: yarn
 
-      - name: TSC -v ??? IT STILL WORKS WITHOUT INSTALLING IT???m CACHED?
-        run: tsc -v
+      - name: Compile TypeScript
+        run: tsc
 
-      - name: SLS -v
-        run: sls -v
+      - name: Deploy
+        run: serverless deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOYER_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOYER_AWS_SECRET_ACCESS_KEY }}
