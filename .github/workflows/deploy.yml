@@ -8,9 +8,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: chabu/docker-serverless:slim
+    # container: chabu/docker-serverless:slim
     steps:
       - uses: actions/checkout@v2
+
+      - uses: whoan/docker-build-with-cache-action@v5
+        with:
+          image_name: chabu/docker-serverless:slim
 
       - name: Install Dependencies
         run: yarn --frozen-lockfile
