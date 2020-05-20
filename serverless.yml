@@ -14,7 +14,6 @@ provider:
 plugins:
   # - serverless-offline
   - serverless-domain-manager
-  - serverless-jetpack
 
 package:
   individually: true
