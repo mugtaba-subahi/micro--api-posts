@@ -40,7 +40,7 @@ jobs:
       - name: Log list
         run: yarn global list
 
-      - uses: ./.github/actions/steve
+      - uses: actions/checkout@v2
       - name: Deploy
         run: sls -v
         env:
