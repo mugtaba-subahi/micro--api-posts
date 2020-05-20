@@ -11,23 +11,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Cache Primes
-        id: serverless
-        uses: actions/cache@v1
-        with:
-          path: serverless
-          key: serverless
-
       - name: Setup Node
         uses: ./.github/actions/steve
+
+      - name: Install Dependencies
+        run: yarn install
 
       - name: TSC -v
         run: tsc -v
 
       - name: SLS -v
-        run: npx serverless -v
-      # - name: Install Dependencies
-      #   run: yarn install
-      #   env:
-      #     AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOYER_AWS_ACCESS_KEY_ID }}
-      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOYER_AWS_SECRET_ACCESS_KEY }}
+        run: npx sls deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOYER_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOYER_AWS_SECRET_ACCESS_KEY }}
