@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: .
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/steve
@@ -15,24 +17,6 @@ jobs:
         run: sls -v
       # - name: Install Dependencies
       #   run: yarn install
-      # # need to make serverless and typescript run in parallel
-      # - name: Install TypeScript
-      #   run: yarn global add typescript@3.9.2
-      # # need to make serverless and typescript run in parallel
-      # - name: Compile TypeScript
-      #   run: tsc
-      # # need to make serverless and typescript run in parallel
-      # - name: Install Serverless
-      #   run: yarn global add serverless@1.71.1
-      # - name: Log dir
-      #   run: yarn global dir
-      # - name: Log bin
-      #   run: yarn global bin
-      # - name: Log list
-      #   run: yarn global list
-      # - uses: ./.github/actions/steve
-      # - name: Deploy
-      #   run: sls -v
       #   env:
       #     AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOYER_AWS_ACCESS_KEY_ID }}
       #     AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOYER_AWS_SECRET_ACCESS_KEY }}
