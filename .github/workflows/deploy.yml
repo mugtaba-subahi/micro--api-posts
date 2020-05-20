@@ -8,18 +8,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: aatlabs/serverless
+    container: chabu/actions-serverless
     steps:
       - uses: actions/checkout@v2
 
-      # - name: Setup Node
-
-      # uses: ./.github/actions/steve
       - name: Install Dependencies
         run: yarn
 
-      # - name: TSC -v ??? IT STILL WORKS WITHOUT INSTALLING IT???m CACHED?
-      #   run: tsc -v
+      - name: TSC -v ??? IT STILL WORKS WITHOUT INSTALLING IT???m CACHED?
+        run: tsc -v
 
       - name: SLS -v
         run: sls -v
