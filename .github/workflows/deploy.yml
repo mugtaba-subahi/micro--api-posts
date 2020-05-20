@@ -18,13 +18,9 @@ jobs:
       - name: Install Dependencies
         run: yarn install
 
-      # need to make serverless and typescript run in parallel
-      - name: Install TypeScript
-        run: yarn global add typescript@3.9.2
-
-      # need to make serverless and typescript run in parallel
-      - name: Compile TypeScript
-        run: tsc
+      # make serverless and typescript install in parallel
+      - name: Install and compile TypeScript
+        run: yarn global add typescript@3.9.2 && tsc
 
       - name: Deploy
         uses: serverless/github-action@master
