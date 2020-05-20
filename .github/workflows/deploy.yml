@@ -39,8 +39,9 @@ jobs:
       - name: Log list
         run: yarn global list
 
+      - uses: ./.github/actions/bob
       - name: Deploy
-        uses: ./.github/actions/bob
+        run: sls -v
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOYER_AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOYER_AWS_SECRET_ACCESS_KEY }}
