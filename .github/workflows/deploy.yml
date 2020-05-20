@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: .
+      image: ./Dockerfile
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/steve
