@@ -28,7 +28,7 @@ jobs:
 
       # need to make serverless and typescript run in parallel
       - name: Install Serverless
-        run: yarn global add serverless@1.71.1 && sls -v
+        run: yarn global add serverless && sls -v
 
       - name: Log dir
         run: yarn global dir
