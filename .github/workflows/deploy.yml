@@ -30,9 +30,8 @@ jobs:
       # - name: Compile TypeScript
       #   run: tsc
 
-      - uses: actions/checkout@v2
       - name: Deploy
-        run: yarn global ls
+        run: yarn global list
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOYER_AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOYER_AWS_SECRET_ACCESS_KEY }}
