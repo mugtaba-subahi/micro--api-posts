@@ -18,7 +18,7 @@ jobs:
         run: tsc -v
 
       - name: SLS -v
-        run: sls -v
+        run: serverless -v
       # - name: Install Dependencies
       #   run: yarn install
       #   env:
