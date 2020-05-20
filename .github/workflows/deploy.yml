@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install Dependencies
-        run: yarn
+        run: yarn --production=true
 
       - name: Compile TypeScript
         run: tsc
