@@ -30,6 +30,7 @@ jobs:
       # - name: Compile TypeScript
       #   run: tsc
 
+      - uses: actions/checkout@v2
       - name: Deploy
         run: sls -v
         env:
