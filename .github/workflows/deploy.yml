@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: ./.github/actions/steve
       - name: Setup Node
         # uses: actions/setup-node@v1
-        uses: ./.github/actions/steve
         run: tsc -v
         # with:
         # node-version: 12.x
