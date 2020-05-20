@@ -9,10 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: ./Dockerfile
+      image: ./.github/actions/steve
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/steve
       - name: Setup Node
         run: sls -v
       # - name: Install Dependencies
