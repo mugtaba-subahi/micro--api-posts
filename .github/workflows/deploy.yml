@@ -26,6 +26,12 @@ jobs:
       - name: Install Serverless
         run: yarn global add serverless@1.71.1
 
+      - name: Log dir
+        run: yarn global dir
+
+      - name: Log bin
+        run: yarn global bin
+
       # # need to make serverless and typescript run in parallel
       # - name: Compile TypeScript
       #   run: tsc
