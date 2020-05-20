@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: chabu/actions-serverless
+    container: chabu/docker-serverless:slim
     steps:
       - uses: actions/checkout@v2
 
