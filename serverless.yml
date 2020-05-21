@@ -9,8 +9,9 @@ provider:
   deploymentBucket: zadif-sls-deployments
 
 plugins:
-  # - serverless-offline
+  - serverless-offline
   - serverless-domain-manager
+  - serverless-plugin-optimize
 
 functions:
   graphql:
