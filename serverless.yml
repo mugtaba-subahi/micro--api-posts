@@ -2,16 +2,16 @@ service: api-posts
 
 provider:
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs12.x
   region: eu-west-1
   stage: dev
   versionFunctions: false
   deploymentBucket: zadif-sls-deployments
 
 plugins:
-  - serverless-offline
-  - serverless-domain-manager
   - serverless-plugin-optimize
+  - serverless-domain-manager
+  - serverless-offline
 
 functions:
   graphql:
