@@ -12,8 +12,8 @@ plugins:
   - serverless-webpack
   # - serverless-offline
 
-package:
-  individually: true
+# package:
+#   individually: true
 
 custom:
   webpack:
