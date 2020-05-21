@@ -10,7 +10,19 @@ provider:
 
 plugins:
   - serverless-domain-manager
+  - serverless-webpack
   - serverless-offline
+
+package:
+  individually: true
+
+custom:
+  customDomain:
+    domainName: api.zadif.com
+    basePath: posts
+    stage: dev
+  webpack:
+    includeModules: true
 
 functions:
   graphql:
@@ -28,9 +40,3 @@ functions:
           cors:
             origins:
               - https://api.zadif.com
-
-custom:
-  customDomain:
-    domainName: api.zadif.com
-    basePath: posts
-    stage: dev
