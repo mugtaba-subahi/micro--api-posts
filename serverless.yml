@@ -9,8 +9,8 @@ provider:
   deploymentBucket: zadif-sls-deployments
 
 plugins:
-  - serverless-plugin-optimize
   - serverless-domain-manager
+  - serverless-plugin-optimize
   - serverless-offline
 
 functions:
