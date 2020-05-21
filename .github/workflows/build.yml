@@ -19,7 +19,6 @@ jobs:
       # - name: Compile TypeScript
       #   run: tsc
 
-      - uses: actions/checkout@v2
       - name: Package
         run: serverless package
 
