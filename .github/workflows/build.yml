@@ -19,6 +19,9 @@ jobs:
       # - name: Compile TypeScript
       #   run: tsc
 
+      - name: Package
+        run: serverless package
+
       - name: Deploy
         run: serverless deploy
         env:
