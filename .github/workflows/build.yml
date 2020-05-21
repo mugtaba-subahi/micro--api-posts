@@ -19,6 +19,12 @@ jobs:
       - name: Compile TypeScript
         run: tsc
 
+      - name: minify Install
+        run: npm install uglify-js -g
+
+      - name: minify all
+        run: find . -maxdepth 1 -iname "*.js" -exec uglifyjs --compress --mangle -o {} -- {} \;
+
       - name: Deploy
         run: serverless deploy
         env:
