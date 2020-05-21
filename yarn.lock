@@ -1092,7 +1092,7 @@ aws-lambda@^1.0.6:
     js-yaml "^3.13.1"
     watchpack "^2.0.0-beta.10"
 
-aws-sdk@*, aws-sdk@^2.490.0:
+aws-sdk@*:
   version "2.681.0"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.681.0.tgz#09eeedb5ca49813dfc637908abe408ae114a6824"
   integrity sha512-/p8CDJ7LZvB1i4WrJrb32FUbbPdiZFZSN6FI2lv7s/scKypmuv/iJ9kpx6QWSWQZ72kJ3Njk/0o7GuVlw0jHXw==
@@ -4052,14 +4052,6 @@ serialize-javascript@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-2.1.2.tgz#ecec53b0e0317bdc95ef76ab7074b7384785fa61"
   integrity sha512-rs9OggEUF0V4jUSecXazOYsLfu7OGK2qIn3c7IPBiffz32XniEp/TX9Xmc9LQfK2nQ2QKHvZ2oygKUGU0lG4jQ==
-
-serverless-domain-manager@^4.0.1:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/serverless-domain-manager/-/serverless-domain-manager-4.1.0.tgz#0e8daf3a0aa21b41d6162c34607d35ac073d0cdd"
-  integrity sha512-8RK4qJ0pCoCSzj4eS32z49tKwymntO/dx7xQ3m2lYobaGtNNC0ESSdBAl1ILadyWJ0jzzZ1HysdDcZl+M+LMFQ==
-  dependencies:
-    aws-sdk "^2.490.0"
-    chalk "^2.4.1"
 
 serverless-offline@^6.1.5:
   version "6.1.7"
