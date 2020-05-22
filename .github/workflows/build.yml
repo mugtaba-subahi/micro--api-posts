@@ -11,18 +11,13 @@ jobs:
     container: chabu/docker-serverless:slim
     timeout-minutes: 5
     steps:
-      # - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       - name: Install Dependencies
         run: yarn --frozen-lockfile
 
-      # - name: Compile TypeScript
-      #   run: tsc
-
-      - uses: actions/checkout@v2
-
-      - name: Package
-        run: serverless package
+      - name: Compile TypeScript
+        run: tsc
 
       - name: Deploy
         run: serverless deploy
