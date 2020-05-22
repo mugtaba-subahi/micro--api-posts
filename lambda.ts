@@ -7,7 +7,7 @@ const typeDefs = importSchema('schema.graphql');
 
 const resolvers = {
   Query: {
-    allUsers: () => 'new post',
+    allPosts: () => 'new post',
   },
 };
 
