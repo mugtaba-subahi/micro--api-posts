@@ -15,6 +15,7 @@ const createHandler = async () => {
   const server = new ApolloServer({
     playground: { endpoint: '/posts' },
     schema: buildFederatedSchema([{ typeDefs: gql(typeDefs), resolvers }]),
+    tracing: true,
   });
   return server.createHandler();
 };
