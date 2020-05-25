@@ -1,21 +1,19 @@
-import { ApolloServer, gql } from 'apollo-server-lambda';
+import { ApolloServer } from 'apollo-server-lambda';
 import { buildFederatedSchema } from '@apollo/federation';
 import { APIGatewayProxyEvent, Context, Callback } from 'aws-lambda';
-import { importSchema } from 'graphql-import';
-
-const typeDefs = importSchema('schema.graphql');
+import typeDefs from './schema';
 
 const resolvers = {
   Query: {
-    allPosts: () => 'new post - changed from yarn to npm',
+    allPosts: () => 'post here',
   },
 };
 
 const createHandler = async () => {
   const server = new ApolloServer({
     playground: { endpoint: '/posts' },
-    schema: buildFederatedSchema([{ typeDefs: gql(typeDefs), resolvers }]),
-    tracing: true,
+    introspection: true,
+    schema: buildFederatedSchema([{ typeDefs, resolvers }]),
   });
   return server.createHandler();
 };

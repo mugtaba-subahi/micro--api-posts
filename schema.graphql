@@ -1,7 +1,0 @@
-type Post {
-  title: String
-}
-
-type Query {
-  allPosts: String
-}
