@@ -7,7 +7,7 @@ const typeDefs = importSchema('schema.graphql');
 
 const resolvers = {
   Query: {
-    allPosts: () => 'new post',
+    allPosts: () => 'new post - changed from yarn to npm',
   },
 };
 

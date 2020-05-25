@@ -14,8 +14,9 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install Dependencies
-        run: yarn --frozen-lockfile
+        run: npm ci
 
+        # run: yarn --frozen-lockfile
       - name: Compile TypeScript
         run: tsc
 
