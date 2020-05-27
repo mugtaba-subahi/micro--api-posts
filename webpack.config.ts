@@ -2,9 +2,6 @@ import slsw from 'serverless-webpack';
 
 const mode = process.env.NODE_ENV === ('production' || 'staging') ? 'production' : 'development';
 
-console.log(':::::::::NODE_ENV');
-console.log(process.env.NODE_ENV);
-
 module.exports = {
   mode, // dev mode allows hot reload
   entry: slsw.lib.entries,
