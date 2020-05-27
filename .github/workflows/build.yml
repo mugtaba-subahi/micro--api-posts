@@ -20,7 +20,7 @@ jobs:
         run: npm ci
 
       - name: Link Webpack
-        run: npm link webpack
+        run: echo LOOOOOL && echo $NODE_ENV && npm link webpack
 
       - name: Compile TypeScript
         run: tsc
