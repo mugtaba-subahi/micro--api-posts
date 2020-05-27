@@ -5,7 +5,7 @@ import typeDefs from './schema';
 
 const resolvers = {
   Query: {
-    allPosts: () => 'post',
+    allPosts: () => 'POST4',
   },
 };
 

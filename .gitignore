@@ -1,6 +1,6 @@
-.build
-node_modules
-.serverless
-**/*.js
-**/*.map
+node_modules/
+.serverless/
 .webpack/
+.build/
+**/*.map
+**/*.js
