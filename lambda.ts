@@ -5,7 +5,7 @@ import typeDefs from './schema';
 
 const resolvers = {
   Query: {
-    allPosts: () => 'Post Updated',
+    allPosts: () => 'Post updated',
   },
 };
 
