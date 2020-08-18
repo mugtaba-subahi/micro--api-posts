@@ -7,7 +7,8 @@ on:
 
 jobs:
   build:
-    runs-on: chabu/docker-serverless:slim
+    runs-on: ubuntu-20.04
+    container: chabu/docker-serverless:slim
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v2
