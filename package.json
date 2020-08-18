@@ -7,12 +7,8 @@
     "watch": "tsc -w",
     "sls-offline": "tsc && sls offline --useChildProcesses",
     "start": "npm-run-all -p watch sls-offline",
-    "test": "",
-    "e2e": "",
-    "docker:install": "docker-compose -f ./docker/docker-compose.start.yml run --rm api npm install",
-    "docker:test": "docker-compose -f ./docker/docker-compose.start.yml run --rm api npm run test",
-    "docker:start": "docker-compose -f ./docker/docker-compose.start.yml up",
-    "docker:e2e": "docker-compose -f ./docker/docker-compose.e2e.yml up"
+    "docker:install": "docker-compose run --rm api npm install",
+    "docker:start": "docker-compose up"
   },
   "dependencies": {
     "@apollo/federation": "^0.16.0",

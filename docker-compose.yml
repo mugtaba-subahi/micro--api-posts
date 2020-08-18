@@ -1,15 +1,10 @@
 version: '3.8'
 
 services:
-  # database
-  #   ...
-  # elasticsearch
-  #   ...
-
   api:
-    build: .
+    image: chabu/docker-serverless:slim
     volumes:
-      - ..:/home/node/workspace
+      - .:/home/node/workspace
     ports:
       - 4000:3000
     tty: true

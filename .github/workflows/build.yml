@@ -7,17 +7,13 @@ on:
 
 jobs:
   build:
-    # runs-on: ubuntu-latest
-    container: chabu/docker-serverless:slim
+    runs-on: chabu/docker-serverless:slim
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v2
 
       - name: Install Dependencies
         run: npm ci
-
-      - name: Link Webpack
-        run: npm link webpack
 
       - name: Compile TypeScript
         run: tsc
