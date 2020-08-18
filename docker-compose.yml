@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    volumes:
+      - .:/home/node/workspace
+    ports:
+      - 4000:3000
+    tty: true
+    stdin_open: true
+    command: npm run start

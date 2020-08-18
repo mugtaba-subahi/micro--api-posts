@@ -5,15 +5,15 @@ import typeDefs from './schema';
 
 const resolvers = {
   Query: {
-    allPosts: () => 'Post updated',
-  },
+    allPosts: () => 'Post update'
+  }
 };
 
 const createHandler = async () => {
   const server = new ApolloServer({
     playground: { endpoint: '/posts' },
     introspection: true,
-    schema: buildFederatedSchema([{ typeDefs, resolvers }]),
+    schema: buildFederatedSchema([{ typeDefs, resolvers }])
   });
   return server.createHandler();
 };
