@@ -1,12 +1,17 @@
 version: '3.8'
 
 services:
+  # database
+  #   ...
+  # elasticsearch
+  #   ...
+
   api:
     build: .
     volumes:
-      - .:/home/node/workspace
+      - ..:/home/node/workspace
     ports:
       - 4000:3000
     tty: true
     stdin_open: true
-    command: npm run start
+    command: npm run e2e
