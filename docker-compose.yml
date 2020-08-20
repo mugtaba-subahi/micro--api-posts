@@ -3,6 +3,11 @@ version: '3.8'
 services:
   api:
     image: chabu/docker-serverless:slim
+    user: node
+    working_dir: /home/node/workspace
+    environment: 
+      - NPM_CONFIG_PREFIX=/home/node/.npm-global
+      - PATH=$PATH:/home/node/.npm-global/bin
     volumes:
       - .:/home/node/workspace
     ports:
