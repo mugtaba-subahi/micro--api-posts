@@ -1,38 +1,37 @@
 version: '3.8'
 
 services:
-  api:
-    image: chabu/docker-serverless:slim
-    user: node
-    working_dir: /home/node/workspace
-    environment: 
-      - NPM_CONFIG_PREFIX=/home/node/.npm-global
-      - PATH=$PATH:/home/node/.npm-global/bin
-    volumes:
-      - .:/home/node/workspace
-    ports:
-      - 4000:3000
-    tty: true
-    stdin_open: true
-    command: npm run start
-  
+  # api:
+  #   image: chabu/docker-serverless:slim
+  #   user: node
+  #   working_dir: /home/node/workspace
+  #   environment:
+  #     - NPM_CONFIG_PREFIX=/home/node/.npm-global
+  #     - PATH=$PATH:/home/node/.npm-global/bin
+  #   volumes:
+  #     - .:/home/node/workspace
+  #   ports:
+  #     - 4000:3000
+  #   tty: true
+  #   stdin_open: true
+  #   command: npm run start
+
   dynamodb:
     image: amazon/dynamodb-local
     command: -jar DynamoDBLocal.jar -sharedDb
     ports:
       - 8000:8000
-    
+
   seed:
     image: chabu/docker-seed:slim
     working_dir: /seed
-    volumes: 
+    volumes:
       - ./seed:/seed
-    command: bash seed.sh
+    command: bash seed.bash
     environment:
       - DB_URL=http://dynamodb:8000
       - AWS_ACCESS_KEY_ID=dummy
       - AWS_SECRET_ACCESS_KEY=dummy
       - AWS_DEFAULT_REGION=eu-west-1
-    depends_on: 
+    depends_on:
       - dynamodb
-   

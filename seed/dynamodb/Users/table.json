@@ -1,14 +1,14 @@
 {
-  "TableName": "Movies",
+  "TableName": "Users",
   "KeySchema": [
     {
-      "AttributeName": "Title",
+      "AttributeName": "id",
       "KeyType": "HASH"
     }
   ],
   "AttributeDefinitions": [
     {
-      "AttributeName": "Title",
+      "AttributeName": "id",
       "AttributeType": "S"
     }
   ],
