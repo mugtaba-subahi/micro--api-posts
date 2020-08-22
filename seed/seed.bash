@@ -20,7 +20,6 @@ function seedTable() {
   done
 }
 
-
 for folderPath in ./dynamodb/*; do
   tableName=$(echo $folderPath | cut -d/ -f3);
 
