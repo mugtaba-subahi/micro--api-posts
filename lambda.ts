@@ -2,7 +2,6 @@ import { ApolloServer } from 'apollo-server-lambda';
 import { buildFederatedSchema } from '@apollo/federation';
 import { APIGatewayProxyEvent, Context, Callback } from 'aws-lambda';
 import typeDefs from './schema';
-
 const resolvers = {
   Query: {
     allPosts: () => 'Post update'

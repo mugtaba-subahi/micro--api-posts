@@ -1,0 +1,21 @@
+{
+  "Movies": [
+    {
+      "PutRequest": {
+        "Item": {
+          "Title": { "S": "Black Hawk Down" },
+          "Date": { "S": "10/25/95" },
+          "Rating": { "N": "5" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "Title": { "S": "London Will Fall" },
+          "Date": { "S": "03/15/90" }
+        }
+      }
+    }
+  ]
+}

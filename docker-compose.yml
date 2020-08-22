@@ -15,3 +15,24 @@ services:
     tty: true
     stdin_open: true
     command: npm run start
+  
+  dynamodb:
+    image: amazon/dynamodb-local
+    command: -jar DynamoDBLocal.jar -sharedDb
+    ports:
+      - 8000:8000
+    
+  seed:
+    image: chabu/docker-seed:slim
+    working_dir: /seed
+    volumes: 
+      - ./seed:/seed
+    command: bash seed.sh
+    environment:
+      - DB_URL=http://dynamodb:8000
+      - AWS_ACCESS_KEY_ID=dummy
+      - AWS_SECRET_ACCESS_KEY=dummy
+      - AWS_DEFAULT_REGION=eu-west-1
+    depends_on: 
+      - dynamodb
+   

@@ -1,0 +1,21 @@
+{
+  "Dogs": [
+    {
+      "PutRequest": {
+        "Item": {
+          "Title": { "S": "Jimmy" },
+          "Date": { "S": "10/25/95" },
+          "Happiness": { "N": "5" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "Title": { "S": "Bobby" },
+          "Date": { "S": "03/15/90" }
+        }
+      }
+    }
+  ]
+}
