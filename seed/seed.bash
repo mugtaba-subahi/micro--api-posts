@@ -11,11 +11,11 @@ function seedTable() {
 
   jq -c '.[]'  $2/data.json | while read item; do # loop json file
     buffer+=($item); # add to array
-    if [ ${#buffer[@]} != 25 ]; then continue; fi; # skip current loop if array is not 25
+    if [ ${#buffer[@]} != 25 ]; then continue; fi; # batch-write-item cant write more than 25 items
 
-    printf -v buffedJoined '%s,' "${buffer[@]}";
+    printf -v bufferJoined '%s,' "${buffer[@]}"; # join array with commas
 
-    aws dynamodb batch-write-item --request-items='{"'$1'": ['${buffedJoined%,}']}' --endpoint-url $DB_URL;
+    aws dynamodb batch-write-item --request-items='{"'$1'": ['${bufferJoined%,}']}' --endpoint-url $DB_URL;
     buffer=();
   done
 }
