@@ -1,30 +1,17 @@
 import { ApolloServer } from 'apollo-server-lambda';
 import { buildFederatedSchema } from '@apollo/federation';
 import { APIGatewayProxyEvent, Context, Callback } from 'aws-lambda';
+
 import typeDefs from './schema';
-
-
+import post from './resolvers/post';
+import user from './resolvers/user';
 
 const resolvers = {
   Query: {
-    allPosts: () => 'Post update'
+    post: () => post(),
+    user: () => user()
   }
 };
-
-// const resolvers = {
-//   Query: {
-//     allPosts: () => {
-      
-//       const dynamodb = new AWS.DynamoDB();
-//       dynamodb.(params, function (err, data) {
-//         if (err) console.log(err, err.stack); // an error occurred
-//         else console.log(data);           // successful response
-//       });
-
-//       return x;
-//     }
-//   }
-// };
 
 const createHandler = async () => {
   const server = new ApolloServer({

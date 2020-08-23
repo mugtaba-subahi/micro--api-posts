@@ -2,10 +2,19 @@ import { gql } from 'apollo-server-lambda';
 
 export default gql`
   type Post {
-    title: String
+    id: String
+    name: String
+    date: String
+  }
+
+  type User {
+    id: String
+    name: String
+    date: String
   }
 
   type Query {
-    allPosts: String
+    post: Post
+    user: User
   }
 `;

@@ -5,6 +5,7 @@ services:
     image: chabu/docker-serverless:slim
     user: node
     working_dir: /home/node/workspace
+    env_file: ./docker-compose.env
     environment:
       - NPM_CONFIG_PREFIX=/home/node/.npm-global
       - PATH=$PATH:/home/node/.npm-global/bin
@@ -28,10 +29,6 @@ services:
     volumes:
       - ./seed:/seed
     command: bash seed.bash
-    environment:
-      - DB_URL=http://dynamodb:8000
-      - AWS_ACCESS_KEY_ID=dummy
-      - AWS_SECRET_ACCESS_KEY=dummy
-      - AWS_DEFAULT_REGION=eu-west-1
+    env_file: ./docker-compose.env
     depends_on:
       - dynamodb

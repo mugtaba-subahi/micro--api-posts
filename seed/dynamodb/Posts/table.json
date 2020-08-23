@@ -1,5 +1,5 @@
 {
-  "TableName": "Dogs",
+  "TableName": "Posts",
   "KeySchema": [
     {
       "AttributeName": "id",
